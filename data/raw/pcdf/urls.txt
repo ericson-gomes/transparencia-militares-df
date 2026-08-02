@@ -1,0 +1,79 @@
+# Origem dos documentos deste diretório.
+#
+# Lado PCDF da comparação: as normas que definem os cargos, as classes, o
+# interstício de progressão e o subsídio.
+#
+# Formato: <arquivo> <TAB> <URL de origem> <TAB> <data de obtenção>
+#
+# Nem todo arquivo aqui alimenta o ETL. Os que não alimentam estão versionados
+# porque sustentam afirmações do README e da página de metodologia — se o órgão
+# tirar do ar, a cópia consultada continua no histórico do git.
+
+decreto-7652-2011.htm	https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/decreto/d7652.htm	2026-07-31
+lei-9264-1996.htm	https://www.planalto.gov.br/ccivil_03/leis/l9264.htm	2026-07-31
+lei-14724-2023.htm	https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14724.htm	2026-07-31
+lei-11361-2006.htm	https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11361.htm	2026-08-01
+tabela-subsidio-policia-civil-seec-202601.pdf	https://www.economia.df.gov.br/documents/d/seec/policia-civil-1-pdf	2026-08-01
+tabela-subsidio-delegado-seec-202601.pdf	https://www.economia.df.gov.br/documents/d/seec/delegado-de-policia-1-pdf-1	2026-08-01
+
+# A remuneração vigente da PCDF NÃO está neste diretório: sai dos Anexos III e
+# IV da Lei 15.395/2026, em `data/raw/pmdf/lei-15395-2026.htm` — a mesma lei que
+# reajustou o lado militar. Os valores foram transcritos à mão para
+# `data/raw/carreira-pcdf.json` e estão pinados em `test_carreira_pcdf.py`.
+#
+# Para que serve cada um:
+#
+# decreto-7652-2011.htm   [alimenta o ETL]
+#   Disciplina a PROGRESSÃO — na PCDF não há promoção, e sim mudança para a
+#   classe imediatamente superior (art. 2º). É a fonte do interstício que o
+#   simulador usa: 3 anos da 3ª para a 2ª classe, 5 da 2ª para a 1ª e 5 da 1ª
+#   para a Especial (art. 3º, I).
+#   O art. 3º ainda exige avaliação de desempenho satisfatória e curso de
+#   aperfeiçoamento concluído, e o art. 4º lista o que INTERROMPE a contagem
+#   (licença sem remuneração, suspensão disciplinar, falta injustificada,
+#   prisão por sentença transitada em julgado), recontando o interstício do
+#   zero a partir do retorno.
+#   É por isso que a simulação da PCDF é um piso, não uma previsão: o
+#   comparador assume o interstício mínimo cumprido sem atraso, o cenário mais
+#   conservador que a norma permite.
+#
+# lei-9264-1996.htm
+#   Desmembra a Carreira Policial Civil do DF em duas: Carreira de Delegado de
+#   Polícia (cargo único) e Carreira de Polícia Civil (Perito Criminal, Perito
+#   Médico-Legista, Agente de Polícia, Escrivão de Polícia, Papiloscopista
+#   Policial e Agente Policial de Custódia). O art. 5º fixa o ingresso sempre
+#   na 3ª classe, por concurso e com nível superior, e o § 4º é o que delega ao
+#   regulamento os requisitos de progressão — a competência de onde nasce o
+#   Decreto 7.652/2011.
+#
+# lei-11361-2006.htm
+#   Institui, a partir de 1º/09/2006, a remuneração das duas carreiras
+#   EXCLUSIVAMENTE POR SUBSÍDIO, em parcela única. É o que autoriza o
+#   comparador a tratar o número da PCDF como valor cheio, sem gratificações a
+#   somar por fora, ao contrário do lado militar. Os Anexos I e II desta lei
+#   são os que a Lei 15.395/2026 reescreve.
+#
+# lei-14724-2023.htm
+#   Reajuste anterior (conversão da MP 1.181/2023), que fixou os valores
+#   vigentes em janeiro/2024. Fica versionada como degrau anterior da série:
+#   é a régua contra a qual o reajuste de 2025-2026 se mede.
+#
+# tabela-subsidio-{policia-civil,delegado}-seec-202601.pdf
+#   As tabelas de escalonamento vertical publicadas pela Secretaria de Estado
+#   de Economia do DF, vigência janeiro/2026 (atualizadas pelo órgão em
+#   07/05/2026). São a aplicação administrativa dos Anexos III e IV da Lei
+#   15.395/2026 e conferem, valor a valor, com o que está em
+#   `carreira-pcdf.json`.
+#   A tabela da Polícia Civil confirma que Agente de Polícia, Escrivão de
+#   Polícia, Papiloscopista Policial e Agente Policial de Custódia têm subsídio
+#   idêntico — é o que autoriza o formulário a oferecer dois grupos em vez de
+#   cinco cargos.
+#   ATENÇÃO: as páginas HTML da Secretaria de Economia continuam servindo a
+#   tabela de janeiro/2020. Só o PDF foi atualizado.
+#   ATENÇÃO 2: o Quadro II do Anexo IV da Lei 15.395/2026 se intitula "Oficiais
+#   Investigadores de Polícia e Papiloscopistas", mas o dispositivo que
+#   transformaria Agente, Escrivão e Agente de Custódia em "Oficial
+#   Investigador de Polícia" foi VETADO por inconstitucionalidade. Até que o
+#   veto seja apreciado, valem os nomes antigos — que é como estas tabelas da
+#   Secretaria de Economia seguem rotulando os cargos. Os valores não mudam nas
+#   duas hipóteses.

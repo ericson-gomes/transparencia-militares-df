@@ -1,0 +1,101 @@
+.bloco {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 52rem;
+  padding: clamp(1.6rem, 3vw, 2.25rem);
+  background: var(--superficie);
+  border-radius: var(--raio);
+}
+
+.titulo {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.linhas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.linha:last-child {
+  border-bottom: none;
+}
+
+.rotuloLinha {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-mudo);
+}
+
+.detalheLinha {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.valorLinha {
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+}
+
+.diferenca {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linha);
+  text-align: right;
+}
+
+.diferencaValor {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.diferencaRotulo {
+  font-size: 0.85rem;
+  color: var(--fg-mudo);
+}
+
+.tabelaWrap {
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.6rem 0.5rem;
+  text-align: right;
+  border-bottom: 1px solid var(--linha);
+}
+
+.tabela th:first-child,
+.tabela td:first-child {
+  text-align: left;
+}
+
+.nota {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--fg-mudo);
+}

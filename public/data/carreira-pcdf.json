@@ -1,0 +1,127 @@
+{
+  "agente": {
+    "classes": [
+      {
+        "intersticioAnos": 3,
+        "nome": "3ª Classe",
+        "salarioCentavos": 1379441
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "2ª Classe",
+        "salarioCentavos": 1459370
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "1ª Classe",
+        "salarioCentavos": 1752306
+      },
+      {
+        "intersticioAnos": 0,
+        "nome": "Especial",
+        "salarioCentavos": 2344038
+      }
+    ],
+    "nome": "Agente de Polícia"
+  },
+  "custodia": {
+    "classes": [
+      {
+        "intersticioAnos": 3,
+        "nome": "3ª Classe",
+        "salarioCentavos": 1379441
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "2ª Classe",
+        "salarioCentavos": 1459370
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "1ª Classe",
+        "salarioCentavos": 1752306
+      },
+      {
+        "intersticioAnos": 0,
+        "nome": "Especial",
+        "salarioCentavos": 2344038
+      }
+    ],
+    "nome": "Agente de Custódia"
+  },
+  "delegado": {
+    "classes": [
+      {
+        "intersticioAnos": 3,
+        "nome": "3ª Classe",
+        "salarioCentavos": 2669015
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "2ª Classe",
+        "salarioCentavos": 2770352
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "1ª Classe",
+        "salarioCentavos": 3238234
+      },
+      {
+        "intersticioAnos": 0,
+        "nome": "Especial",
+        "salarioCentavos": 3887266
+      }
+    ],
+    "nome": "Delegado de Polícia"
+  },
+  "escrivao": {
+    "classes": [
+      {
+        "intersticioAnos": 3,
+        "nome": "3ª Classe",
+        "salarioCentavos": 1379441
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "2ª Classe",
+        "salarioCentavos": 1459370
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "1ª Classe",
+        "salarioCentavos": 1752306
+      },
+      {
+        "intersticioAnos": 0,
+        "nome": "Especial",
+        "salarioCentavos": 2344038
+      }
+    ],
+    "nome": "Escrivão de Polícia"
+  },
+  "papiloscopista": {
+    "classes": [
+      {
+        "intersticioAnos": 3,
+        "nome": "3ª Classe",
+        "salarioCentavos": 1379441
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "2ª Classe",
+        "salarioCentavos": 1459370
+      },
+      {
+        "intersticioAnos": 5,
+        "nome": "1ª Classe",
+        "salarioCentavos": 1752306
+      },
+      {
+        "intersticioAnos": 0,
+        "nome": "Especial",
+        "salarioCentavos": 2344038
+      }
+    ],
+    "nome": "Papiloscopista Policial"
+  }
+}

@@ -1,0 +1,81 @@
+/* ============================================================
+   TOKENS COMPARTILHADOS — site e calculadora
+
+   Canônico: github.com/MateusLG/site-ericson, app/tokens.css
+   Cópia:    github.com/ericson-gomes/ericson-10193, branch calculadora,
+             mesmo caminho.
+
+   Os dois projetos são separados, com build e deploy próprios, e
+   não há pacote comum de propósito: uma dependência compartilhada
+   entraria no repositório público de auditoria só para carregar
+   cor. O preço é que a cópia é manual — e por isso existe o
+   script:
+
+       scripts/sincronizar-tokens.sh            copia daqui pra lá
+       scripts/sincronizar-tokens.sh --conferir só aponta divergência
+
+   Este arquivo tem só o que os dois usam. Token de um projeto só
+   fica no globals.css dele.
+
+   As cores de corporação saem medidas das fotos, isolando pixels
+   por matiz — não são escolhidas a olho.
+   ============================================================ */
+
+:root {
+  /* ── CBMDF ──
+     Vermelho da camisa operacional dele, medido por matiz nas fotos em
+     que aparece com ela: #700c1a na selfie da capa (12% dos pixels) e
+     #9e1d2f na da viatura. Matiz ~355°.
+
+     Ao contrário do laranja da farda, o vermelho aguenta branco por
+     cima (5.88:1) — por isso --acento-fg é branco nas duas corporações
+     e não precisa mais inverter com o seletor. */
+  --cbm-900: #45080f;
+  --cbm-800: #700c1a;
+  --cbm-600: #9e1d2f;
+  --cbm-500: #c8102e;
+  --refletivo: #e0c32c;
+
+  /* ── PMDF ──
+     Azul da lataria, medido em viatura-pmdf.jpg: #203c57, matiz 210°.
+     O tom de identidade sai mais claro que o medido para render
+     7.08:1 sobre branco. */
+  --pm-900: #10202e;
+  --pm-800: #203c57;
+  --pm-500: #245a94;
+
+  /* ── neutros, do visitbrasil ── */
+  --bg: #ffffff;
+  --superficie: #f6f7f8;
+  --elevado: #eceef0;
+  --fg: #212529;
+  --fg-suave: #495057;
+  --fg-mudo: #707070;
+  --linha: #dee2e6;
+
+  /* ── acento ──
+     --acento preenche, --acento-fg é o texto que vai por cima dele,
+     --acento-texto é para link e texto pequeno sobre o fundo claro.
+     O tom de preenchimento passa em texto grande mas não em corpo
+     pequeno, daí o terceiro. */
+  --acento: var(--cbm-500);
+  --acento-fg: #ffffff; /* 5.88:1 sobre o vermelho, 7.08:1 sobre o azul */
+  --acento-texto: var(--cbm-600);
+
+  /* ── tipografia ──
+     Libre Franklin numa família só, o peso separando título de corpo.
+     As variáveis --fonte-* vêm do next/font no layout de cada app. */
+  --display: var(--fonte-texto), system-ui, sans-serif;
+  --texto: var(--fonte-texto), system-ui, sans-serif;
+  --mono: var(--fonte-mono), ui-monospace, monospace;
+
+  /* ── forma ── */
+  --raio: 1rem;
+  --pill: 2rem;
+  --pad: clamp(1.25rem, 5vw, 5rem);
+}
+
+[data-corporacao="pm"] {
+  --acento: var(--pm-500);
+  --acento-texto: var(--pm-500);
+}

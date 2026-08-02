@@ -1,0 +1,75 @@
+@import "./tokens.css";
+
+/* ============================================================
+   Estilos próprios da calculadora.
+
+   Os tokens do sistema visual vêm de app/tokens.css, que é cópia
+   do canônico em github.com/MateusLG/site-ericson. NÃO edite
+   tokens.css aqui: edite lá e rode, de dentro daquele repositório,
+
+       scripts/sincronizar-tokens.sh            copia pra cá
+       scripts/sincronizar-tokens.sh --conferir aponta divergência
+
+   Aqui fica só o que é da calculadora e não existe no site.
+   ============================================================ */
+
+:root {
+  /* ── competência: quem corrige o problema ──
+     Nome próprio, não apelido de neutro: essas duas são código de
+     leitura da página. Reabertas para o fundo claro — as antigas
+     (#c1613f e #4f9b82) foram calibradas no escuro e davam 4.16:1
+     e 3.31:1 sobre branco, reprovando em contraste.             */
+  --cor-uniao: #9c4221; /* 6.53:1 */
+  --cor-gdf: #2f6f5b; /* 5.92:1 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--acento);
+  color: var(--acento-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento-texto);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

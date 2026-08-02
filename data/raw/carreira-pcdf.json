@@ -1,0 +1,52 @@
+{
+  "lei": "9.264/1996, Decreto 7.652/2011, Lei 14.724/2023, Lei 15.395/2026 (Anexos III e IV)",
+  "fonte": "data/raw/pmdf/lei-15395-2026.htm (remuneração) e data/raw/pcdf/decreto-7652-2011.htm (interstício)",
+  "extraido_em": "2026-07-31",
+  "cargos": {
+    "delegado": {
+      "nome": "Delegado de Polícia",
+      "classes": [
+        {"nome": "3ª Classe", "intersticio_anos": 3, "salario": "26690.15"},
+        {"nome": "2ª Classe", "intersticio_anos": 5, "salario": "27703.52"},
+        {"nome": "1ª Classe", "intersticio_anos": 5, "salario": "32382.34"},
+        {"nome": "Especial", "intersticio_anos": 0, "salario": "38872.66"}
+      ]
+    },
+    "agente": {
+      "nome": "Agente de Polícia",
+      "classes": [
+        {"nome": "3ª Classe", "intersticio_anos": 3, "salario": "13794.41"},
+        {"nome": "2ª Classe", "intersticio_anos": 5, "salario": "14593.70"},
+        {"nome": "1ª Classe", "intersticio_anos": 5, "salario": "17523.06"},
+        {"nome": "Especial", "intersticio_anos": 0, "salario": "23440.38"}
+      ]
+    },
+    "escrivao": {
+      "nome": "Escrivão de Polícia",
+      "classes": [
+        {"nome": "3ª Classe", "intersticio_anos": 3, "salario": "13794.41"},
+        {"nome": "2ª Classe", "intersticio_anos": 5, "salario": "14593.70"},
+        {"nome": "1ª Classe", "intersticio_anos": 5, "salario": "17523.06"},
+        {"nome": "Especial", "intersticio_anos": 0, "salario": "23440.38"}
+      ]
+    },
+    "papiloscopista": {
+      "nome": "Papiloscopista Policial",
+      "classes": [
+        {"nome": "3ª Classe", "intersticio_anos": 3, "salario": "13794.41"},
+        {"nome": "2ª Classe", "intersticio_anos": 5, "salario": "14593.70"},
+        {"nome": "1ª Classe", "intersticio_anos": 5, "salario": "17523.06"},
+        {"nome": "Especial", "intersticio_anos": 0, "salario": "23440.38"}
+      ]
+    },
+    "custodia": {
+      "nome": "Agente de Custódia",
+      "classes": [
+        {"nome": "3ª Classe", "intersticio_anos": 3, "salario": "13794.41"},
+        {"nome": "2ª Classe", "intersticio_anos": 5, "salario": "14593.70"},
+        {"nome": "1ª Classe", "intersticio_anos": 5, "salario": "17523.06"},
+        {"nome": "Especial", "intersticio_anos": 0, "salario": "23440.38"}
+      ]
+    }
+  }
+}

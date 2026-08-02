@@ -1,0 +1,197 @@
+.formulario {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 52rem;
+  padding: clamp(1.6rem, 3vw, 2.25rem);
+  background: var(--superficie);
+  border-radius: var(--raio);
+}
+
+.campo {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+}
+
+/* o número acende quando a pergunta é respondida */
+.passo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-mudo);
+  transition: color 0.25s;
+}
+
+.campo[data-preenchido="true"] .passo {
+  color: var(--acento-texto);
+}
+
+.rotulo {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-mudo);
+}
+
+.select,
+.input,
+.opcoes,
+.ajuda {
+  grid-column: 2;
+}
+
+.select,
+.input {
+  /* Cor explícita, não `transparent`: o popup do <select> é desenhado pelo
+     sistema e deriva o fundo do próprio controle. `--bg` é a cor da página,
+     então a lista aberta continua legível. */
+  background-color: var(--bg);
+  border: 1px solid var(--linha);
+  border-radius: 0.6rem;
+  color: var(--fg);
+  font: inherit;
+  /* Não descer de 16px: abaixo disso o Safari do iPhone dá zoom na página ao
+     focar o campo e não desfaz o zoom ao sair dele. */
+  font-size: 1.05rem;
+  min-height: 3rem;
+  padding: 0.8rem 1rem;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* seta própria: a nativa muda de desenho a cada sistema e destoa do resto */
+.select {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23495057' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6.5 8 10.5 12 6.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+/* Firefox e alguns navegadores no Linux ignoram `color-scheme` para as opções
+   e só respeitam a cor declarada na própria <option>. */
+.select option {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+@media (hover: hover) {
+  .select:hover,
+  .input:hover {
+    border-color: var(--fg-mudo);
+  }
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--acento);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--acento) 22%, transparent);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--cor-uniao);
+}
+
+.input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cor-uniao) 22%, transparent);
+}
+
+.ajuda {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--fg-mudo);
+}
+
+.input[aria-invalid="true"] ~ .ajuda {
+  color: var(--cor-uniao);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  gap: 3px;
+  padding: 3px;
+  background: var(--bg);
+  border: 1px solid var(--linha);
+  border-radius: var(--pill);
+}
+
+.opcao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  background: transparent;
+  border: none;
+  border-radius: var(--pill);
+  color: var(--fg-suave);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.4rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.opcao[aria-pressed="true"] {
+  color: var(--acento-fg);
+  background: var(--acento);
+}
+
+.opcao:focus-visible {
+  outline: 2px solid var(--acento-texto);
+  outline-offset: 2px;
+}
+
+.aviso {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linha);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--fg-mudo);
+}
+
+/* O primeiro campo (Corporação) tem várias opções lado a lado e precisa da
+   largura toda; os demais (patente, ano) cabem numa coluna cada. */
+@media (min-width: 640px) {
+  .formulario {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    column-gap: 2rem;
+  }
+
+  .campo:first-child,
+  .aviso {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Em tela larga o formulário tem só três perguntas — cabem lado a lado, sem a
+   coluna dedicada à corporação. */
+@media (min-width: 1180px) {
+  .formulario {
+    max-width: none;
+    grid-template-columns: auto 1fr 1fr;
+    column-gap: clamp(2rem, 3vw, 3.5rem);
+    align-items: start;
+  }
+
+  .campo:first-child {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "registros": {
+    "militar.remuneracaoAtual": {
+      "arquivo": "data/raw/remuneracao-2026-01.pdf",
+      "observacao": "coluna TOTAL, vigência 202601, por posto — lado militar do comparador"
+    },
+    "militar.soldoAtual": {
+      "arquivo": "data/raw/pmdf/lei-15395-2026.htm",
+      "observacao": "Anexo I da Lei 15.395/2026, coluna SOLDO, vigência 202601 — base de cálculo da contribuição previdenciária do militar (Lei 10.486/2002, art. 33 §1º e art. 36 §2º: incide sobre o soldo, não a remuneração total)"
+    },
+    "pcdf.carreira": {
+      "arquivo": "data/raw/carreira-pcdf.json",
+      "observacao": "Lei 9.264/1996 + Decreto 7.652/2011 + Lei 14.724/2023 (classes e interstício) e Anexos III/IV da PCDF na Lei 15.395/2026 (remuneração vigente)"
+    },
+    "remuneracao.identidade": {
+      "arquivo": "data/raw/pmdf/tabela-remuneracao-pmdf-seec-202001.html",
+      "observacao": "tabela de escalonamento vertical da PMDF publicada pela Secretaria de Economia do DF, idêntica célula a célula à do CBMDF (mesma vigência 202001) — é o que autoriza o comparador a valer para as duas corporações"
+    }
+  }
+}

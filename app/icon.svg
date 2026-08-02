@@ -1,0 +1,11 @@
+<!-- Marca neutra de propósito: a calculadora se apresenta como ferramenta
+     auditável, e a página de metodologia manda conferir o repositório
+     público como prova disso. Carimbá-la com o monograma dele enfraquece
+     esse argumento — o site na raiz do domínio é que leva a marca pessoal. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#212529"/>
+  <text x="16" y="22.5" text-anchor="middle"
+        font-family="Libre Franklin, Helvetica, Arial, sans-serif"
+        font-size="15" font-weight="700" letter-spacing="-0.6"
+        fill="#ffffff">R$</text>
+</svg>

@@ -1,0 +1,110 @@
+.pagina {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--pad) clamp(4rem, 9vw, 8rem);
+}
+
+.introducao {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-mudo);
+}
+
+.titulo {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 28ch;
+}
+
+.resumo {
+  max-width: 42rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--fg-suave);
+}
+
+.espera {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  color: var(--fg-mudo);
+}
+
+.resultado {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.compartilhar {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.6rem, 3vw, 2.25rem);
+  background: var(--superficie);
+  border-radius: var(--raio);
+}
+
+@media (min-width: 900px) {
+  .compartilhar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.compartilharTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tituloCompartilhar {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.textoCompartilhar {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--fg-suave);
+}
+
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--linha);
+}
+
+.linkMetodologia {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.95rem;
+  color: var(--fg-mudo);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .linkMetodologia:hover {
+    color: var(--acento-texto);
+    text-decoration: underline;
+  }
+}
+
+.dataCorte {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  color: var(--fg-mudo);
+}

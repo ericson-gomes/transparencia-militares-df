@@ -1,0 +1,238 @@
+.pagina {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--pad) clamp(4rem, 9vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 6vw, 4rem);
+}
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.9rem;
+  color: var(--fg-mudo);
+  text-decoration: none;
+  width: fit-content;
+}
+
+@media (hover: hover) {
+  .voltar:hover {
+    color: var(--acento-texto);
+    text-decoration: underline;
+  }
+}
+
+.introducao {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg-mudo);
+}
+
+.titulo {
+  font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 24ch;
+}
+
+.resumo {
+  max-width: 42rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--fg-suave);
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding-top: clamp(2.25rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--linha);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--fg-suave);
+}
+
+.secao:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.tituloSecao {
+  font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.tabelaWrap {
+  overflow-x: auto;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.tabela th,
+.tabela td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.tabela thead th {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-mudo);
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--superficie);
+}
+
+.tabela tbody tr:last-child th,
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela code {
+  font-size: 0.9em;
+  color: var(--fg-suave);
+}
+
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Abaixo de 860px a tabela deixa de ser tabela. Com quatro a seis colunas numa
+   tela de celular, a rolagem horizontal esmagava a coluna de texto a duas ou
+   três palavras por linha e cada registro esticava por meia tela — e nada na
+   página avisava que havia colunas escondidas à direita. Cada linha vira um
+   bloco: a primeira célula é o título e as outras trazem o rótulo da coluna
+   em cima do valor. */
+@media (max-width: 860px) {
+  .tabelaWrap {
+    overflow-x: visible;
+    border: none;
+    border-radius: 0;
+  }
+
+  .tabela {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .tabela thead {
+    /* fora da tela, não `display: none`: o leitor de tela continua anunciando
+       o cabeçalho ao percorrer a tabela */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .tabela tbody { display: block; }
+
+  .tabela tbody tr {
+    display: block;
+    margin-bottom: 0.85rem;
+    padding: 0.35rem 0;
+    border: 1px solid var(--linha);
+    border-radius: var(--raio);
+  }
+
+  .tabela tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .tabela td {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-bottom: none;
+  }
+
+  .tabela td:not(:first-child)::before {
+    content: attr(data-rotulo);
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-mudo);
+  }
+
+  .tabela td:first-child {
+    margin-bottom: 0.35rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--linha);
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  .tabela code {
+    font-size: 0.92em;
+  }
+
+  /* Alinhado à esquerda como o resto: sem coluna, não há o que alinhar. E sem
+     `normal` o `nowrap` da versão de tabela passa para o rótulo do ::before,
+     que é comprido ("Ganho real (IPCA até jan/2026, casado)") e sozinho
+     estourava a largura da tela. */
+  .num {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+.ressalva {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--fg-suave);
+  background: var(--superficie);
+  border-left: 4px solid var(--acento);
+  border-radius: 0 var(--raio) var(--raio) 0;
+  padding: 1rem 1.25rem;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.lista li {
+  padding-left: 0.15rem;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 0.25rem;
+}
+
+.rodape {
+  padding-top: clamp(2.25rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--linha);
+}

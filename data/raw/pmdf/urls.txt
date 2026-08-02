@@ -1,0 +1,103 @@
+# Origem dos documentos deste diretório.
+#
+# Apesar do nome, este diretório guarda o LADO MILITAR inteiro — PMDF e CBMDF.
+# A remuneração das duas corporações sai dos mesmos anexos legais, então não
+# há documento a separar por corporação; o nome do diretório é herança da
+# ordem em que as fontes foram reunidas, não uma divisão de conteúdo.
+#
+# Formato: <arquivo> <TAB> <URL de origem> <TAB> <data de obtenção>
+#
+# Nem todo arquivo aqui alimenta o ETL. Os que não alimentam estão versionados
+# porque sustentam afirmações do README e da página de metodologia — se o órgão
+# tirar do ar, a cópia consultada continua no histórico do git.
+
+tabela-remuneracao-pmdf-seec-202001.html	https://www.economia.df.gov.br/tabela-policia-militar-do-df	2026-07-26
+tabela-remuneracao-cbmdf-seec-202001.html	https://www.economia.df.gov.br/tabela-corpo-de-bombeiros-militar	2026-07-26
+tabela-remuneracao-pmdf-seec-202601.pdf	https://www.economia.df.gov.br/documents/d/seec/policia-militar-pdf	2026-08-01
+tabela-remuneracao-cbmdf-seec-202601.pdf	https://www.economia.df.gov.br/documents/d/seec/bombeiro-militar-pdf-2	2026-08-01
+lei-15395-2026.htm	https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/l15395.htm	2026-07-26
+mp-1326-2025.htm	https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1326.htm	2026-07-26
+lei-10486-2002.htm	https://www.planalto.gov.br/ccivil_03/leis/2002/l10486.htm	2026-08-01
+lei-11134-2005.htm	https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2005/lei/l11134.htm	2026-08-01
+lei-12086-2009.htm	https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l12086.htm	2026-08-01
+lei-7289-1984.htm	https://www.planalto.gov.br/ccivil_03/leis/l7289.htm	2026-08-01
+lei-7479-1986.htm	https://www.planalto.gov.br/ccivil_03/leis/l7479.htm	2026-08-01
+
+# Para que serve cada um:
+#
+# tabela-remuneracao-{pmdf,cbmdf}-seec-202001.html   [alimenta o ETL]
+#   As duas tabelas de escalonamento vertical publicadas pela Secretaria de
+#   Estado de Economia do DF, vigência janeiro/2020 — mesmo órgão, mesmo
+#   formato, uma por corporação. São o par que `etl.seec` compara para provar
+#   que a remuneração das duas é idêntica, posto a posto, coluna a coluna.
+#   A legenda das duas também é a fonte que data o auxílio-alimentação em
+#   R$ 850,00 desde maio de 2014 (Decreto 35.182/2014).
+#
+# tabela-remuneracao-{pmdf,cbmdf}-seec-202601.pdf
+#   As mesmas duas tabelas na vigência janeiro/2026 (atualizadas pelo órgão em
+#   07/05/2026), que é a vigência que o comparador usa. Confirmam a identidade
+#   entre PMDF e CBMDF também no presente, e não só em 2020: os dois arquivos
+#   são idênticos linha a linha, posto a posto.
+#   ATENÇÃO: as páginas HTML da Secretaria de Economia continuam servindo a
+#   tabela de janeiro/2020. Só o PDF de cada carreira foi atualizado. Quem
+#   conferir pelo HTML encontra valores de seis anos atrás.
+#
+# lei-15395-2026.htm   [alimenta o ETL]
+#   A FONTE CITÁVEL do soldo e da VPE. Converteu a MP 1.326/2025 sem alterar
+#   nenhum valor dos anexos (há teste que confere isso). O Anexo I dá nova
+#   redação ao Anexo I da Lei 10.486/2002 (soldo) e o Anexo II ao Anexo I da
+#   Lei 11.134/2005 (VPE). Ambas únicas para as duas corporações — o próprio
+#   texto rotula as praças especiais como "Cadete da Academia de Polícia
+#   Militar ou Bombeiro Militar".
+#   Três colunas de vigência: até 30/11/2025 (valor congelado), a partir de
+#   1º/12/2025 e a partir de 1º/01/2026. O reajuste veio em dois degraus.
+#   Os Anexos III e IV desta mesma lei trazem o subsídio da PCDF, transcrito
+#   em `data/raw/carreira-pcdf.json`.
+#   ATENÇÃO: a mesma lei traz OUTRA tabela de soldo, a do Anexo V
+#   (ex-Territórios Federais), com valores diferentes e o mesmo rótulo
+#   "TABELA I - SOLDO". A leitura tem que ser por anexo, nunca por título —
+#   ver `etl/src/etl/tabelas_legais.py`.
+#
+# mp-1326-2025.htm   [alimenta o ETL]
+#   Registro histórico da medida provisória que a lei acima converteu. Não é
+#   mais a fonte citável: MP convertida perde autonomia como norma. Fica
+#   versionada porque um teste compara os dois anexos e prova que a conversão
+#   não mexeu em valor nenhum.
+#
+# lei-10486-2002.htm
+#   Lei de remuneração dos militares do DF. Define soldo, APG, AOM, GFR e ACP,
+#   e é a fonte do achado que o art. 33 §1º e o art. 36 §2º firmam: a
+#   contribuição previdenciária do militar incide sobre o SOLDO, não sobre a
+#   remuneração total. Usar o total como base infla o desconto e subestima o
+#   líquido militar. Ver `lib/liquido.ts`.
+#   O art. 62 também registra que o adicional de tempo de serviço está extinto
+#   — por isso o comparador não tem anuênio de nenhum lado.
+#
+# lei-11134-2005.htm
+#   Institui a Vantagem Pecuniária Especial (VPE). O Anexo I é o que a Lei
+#   15.395/2026 reescreve; esta cópia é a norma que criou a verba.
+#
+# lei-12086-2009.htm
+#   Promoções na PMDF e no CBMDF. É a fonte dos interstícios publicados no
+#   README: Anexo I para a PMDF (quadros QOPM e QPPMC), Anexo IV para o CBMDF
+#   (oficiais de carreira e Quadro-Geral de Praças). Também define os cinco
+#   critérios de promoção (art. 6º), a regra de que só o último posto é por
+#   merecimento (arts. 24 e 25), a redução de interstício em até 50% por vaga
+#   não preenchida (art. 5º §2º), as datas fixas de promoção (arts. 29 e 88) e
+#   os cursos exigidos (art. 31 §1º e art. 86).
+#   O art. 2º fixa o efetivo da PMDF em 18.673.
+#   NÃO alimenta o ETL: o comparador não simula promoção militar — a patente é
+#   informada pela pessoa e fica constante na projeção.
+#
+# lei-7289-1984.htm
+#   Estatuto dos Policiais Militares da PMDF. O art. 15 traz a escala
+#   hierárquica (círculos de oficiais superiores, intermediários, subalternos,
+#   praças especiais, subtenentes/sargentos e cabos/soldados) reproduzida no
+#   README. A Lei 15.395/2026 alterou os limites de idade para transferência à
+#   reserva neste mesmo texto.
+#
+# lei-7479-1986.htm
+#   Estatuto dos Bombeiros Militares do CBMDF, equivalente ao anterior. Fica
+#   versionado para que a afirmação de que as duas corporações têm a mesma
+#   estrutura hierárquica possa ser conferida nos dois estatutos, e não só em
+#   um.
